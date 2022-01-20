@@ -81,7 +81,10 @@ class MarkovDecisionProcess(Env):
         return self.R[x, action]
 
     def is_terminal(self, state):
-        return yaaf.ndarray_in_collection(state, self._terminal_states)
+        try:
+            return yaaf.ndarray_index_from(state, self._terminal_states)
+        except ValueError:
+            return False
 
     @property
     def optimal_policy(self, method="policy iteration", **kwargs) -> np.ndarray:

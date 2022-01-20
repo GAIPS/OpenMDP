@@ -48,4 +48,4 @@ if __name__ == '__main__':
     elif opt.agent == "QMDPAgent": agent = QMDPAgent(pomdp)
     else: raise ValueError("Unreachable exception due to choices=[...] on argparse")
 
-    run(agent, pomdp, opt.horizon, True)
+    run(agent, pomdp, opt.horizon, opt.render)
